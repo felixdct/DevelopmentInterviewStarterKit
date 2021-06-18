@@ -20,8 +20,8 @@ router.get('/', (req, res) => {
 
 router.get('/charactersCount', async (req, res) => {
     getUniqueCharactersFrequencyCountEmails()
-        .then((emailList) => {
-            res.send(emailList);
+        .then((uniqueCharactersFrequencyList) => {
+            res.send(uniqueCharactersFrequencyList);
         })
         .catch((error) => {
             console.log(error);
