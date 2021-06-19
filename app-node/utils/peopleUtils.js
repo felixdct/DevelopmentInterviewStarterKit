@@ -12,6 +12,7 @@ const isValidCharacter = (charCode) => {
 
 const getEmailUniqueCharactersFrequency = (email, uniqueCharactersCount) =>{
     let ch;
+
     for (let i = 0; i < email.length; i+=1) {
         ch = email.charAt(i);
         if (!isValidCharacter(email.charCodeAt(i)))
@@ -27,6 +28,7 @@ const getEmailUniqueCharactersFrequency = (email, uniqueCharactersCount) =>{
 
 const getEmailsUniqueCharactersFrequency = (peopleList) => {
     const uniqueCharactersCount = {};
+
     for (const person of peopleList) {
         const email = person.email_address;
         getEmailUniqueCharactersFrequency(email, uniqueCharactersCount);
