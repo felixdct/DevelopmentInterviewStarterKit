@@ -1,36 +1,29 @@
 const { Router } = require('express');
-const router = Router();
 const {
     getPeopleInfoFromSalesLoftAPI,
+    getPossibleEmailsDuplicate,
     getUniqueCharactersFrequencyCountEmails
 } = require('../../services/peopleService');
 const {getPeopleListCustom} = require('../../utils/peopleUtils');
 
+const router = Router();
+
 router.get('/', (req, res) => {
     getPeopleInfoFromSalesLoftAPI()
-        .then((peopleInfo) => {
-            const {data} = peopleInfo;
-            res.send(getPeopleListCustom(data.data));
-        })
-        .catch((error) => {
-            console.log(error);
-            res.status(500).send(error.message);
-        });
+        .then((peopleInfo) => res.send(getPeopleListCustom(peopleInfo.data.data)))
+        .catch((error) => res.status(500).send(error.message));
 });
 
-router.get('/charactersCount', async (req, res) => {
+router.get('/charactersCount', (req, res) => {
     getUniqueCharactersFrequencyCountEmails()
-        .then((uniqueCharactersFrequencyList) => {
-            res.send(uniqueCharactersFrequencyList);
-        })
-        .catch((error) => {
-            console.log(error);
-            res.status(500).send(error.message);
-        });
+        .then((uniqueCharactersFrequencyList) => res.send(uniqueCharactersFrequencyList))
+        .catch((error) => res.status(500).send(error.message));
 });
 
-router.get('/duplicates', (req, res) => {
-    res.send('get possible duplicates')
+router.get('/possibleDuplicates', (req, res) => {
+    getPossibleEmailsDuplicate()
+        .then((duplicates) => res.send(duplicates))
+        .catch((error) => res.status(500).send(error.message));
 });
 
 module.exports = router;

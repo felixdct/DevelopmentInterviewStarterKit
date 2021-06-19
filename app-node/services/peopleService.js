@@ -1,5 +1,5 @@
 const axios = require('axios');
-const {getEmailsUniqueCharactersFrequency} = require('../utils/peopleUtils')
+const {getEmailsDuplicates, getEmailsUniqueCharactersFrequency} = require('../utils/peopleUtils')
 
 const SALESLOFT_URL = "https://api.salesloft.com/v2/people.json";
 
@@ -18,7 +18,14 @@ const getUniqueCharactersFrequencyCountEmails = async () => {
     return getEmailsUniqueCharactersFrequency(data.data);
 }
 
+const getPossibleEmailsDuplicate = async () => {
+    const peopleInfo = await getPeopleInfoFromSalesLoftAPI();
+    const {data} = peopleInfo;
+    return getEmailsDuplicates(data.data);
+}
+
 module.exports = {
     getPeopleInfoFromSalesLoftAPI,
+    getPossibleEmailsDuplicate,
     getUniqueCharactersFrequencyCountEmails
 }
