@@ -14,6 +14,7 @@ var config = {
   output: {
     path: BUILD_DIR,
     filename: 'app.js',
+    publicPath: '/'
   },
   module: {
     loaders : [
@@ -30,18 +31,23 @@ var config = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    //new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: './public/index.html'
+    })
   ],
 
   devServer: {
-    hot: true,
-    hotOnly: true,
-    allowedHosts: ['localhost'],
+    //hot: true,
+    //hotOnly: true,
+    // allowedHosts: ['localhost'],
     host: 'localhost',
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
     contentBase: BUILD_DIR,
+    historyApiFallback: true,
+    port: 3000
   }
 };
 

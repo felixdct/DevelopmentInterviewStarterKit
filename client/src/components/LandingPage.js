@@ -17,11 +17,16 @@ const FlexBox = styled.div`
   justify-content: center;
 `;
 
-export const LandingPage = () => (
-  <Page>
-    <ConnectedNavBar />
-    <FlexBox>
-      <Intro />
-    </FlexBox>
-  </Page>
-);
+export const LandingPage = () => {
+  
+  return(
+    <Page>
+      <ConnectedNavBar />
+      <FlexBox>
+        <Intro />
+      </FlexBox>
+    </Page>
+  )
+}
+  
+
