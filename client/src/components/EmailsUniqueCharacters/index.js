@@ -15,7 +15,7 @@ const Title = styled.div`
     grid-column-start: 1;
     grid-column-end: 3;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     font-weight: bold;
@@ -24,7 +24,7 @@ const Title = styled.div`
 
 const Header = styled.div`
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     font-weight: bold;
@@ -33,10 +33,8 @@ const Header = styled.div`
 
 const Item = styled.div`
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding: 0 250px 0 250px;
     font-size: 1.2em;
 `;
 
