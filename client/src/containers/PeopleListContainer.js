@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import { PEOPLE_LIST, UNIQUE_EMAILS_CHARACTERS, POSSIBLE_EMAILS_DUPLICATES } from '../actions/Constants';
 import {fetchPeopleList, fetchUniqueEmailsCharacters, fetchPossibleEmailsDuplicates} from "../actions/AsyncActions";
 import People from "../components/people";
 

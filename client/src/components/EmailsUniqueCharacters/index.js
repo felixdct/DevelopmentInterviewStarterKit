@@ -11,25 +11,29 @@ const Table = styled.div`
     grid-auto-rows: 50px;
 `;
 
+const Title = styled.div`
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.9em;  
+`;
+
 const Header = styled.div`
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     font-size: 1.5em;
 `;
 
-const ItemWrapper = styled.div`
-    grid-column-start: 1;
-    grid-column-end:34;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
 const Item = styled.div`
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding: 0 250px 0 250px;
@@ -39,14 +43,15 @@ const Item = styled.div`
 export const EmailsUniqueCharacters = ({ uniqueCharacters }) => {
     return (
         <Table>
+            <Title>Unique Emails Characters Sorted</Title>
             <Header>Character</Header>
             <Header>Count</Header>
             {uniqueCharacters && uniqueCharacters.length > 0 &&
-                uniqueCharacters.map((ch, index) => 
-                    <ItemWrapper key={ch[0]}>
+                uniqueCharacters.map((ch) => 
+                    <React.Fragment key={ch[0]}>
                         <Item>{ch[0]}</Item>
                         <Item>{ch[1]}</Item>
-                    </ItemWrapper>
+                    </React.Fragment>
                 )
             }
         </Table>

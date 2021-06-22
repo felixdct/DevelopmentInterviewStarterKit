@@ -11,6 +11,17 @@ const Table = styled.div`
     grid-auto-rows: 50px;
 `;
 
+const Title = styled.div`
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.9em;  
+`;
+
 const Header = styled.div`
     display: flex;
     flex-wrap: nowrap;
@@ -20,33 +31,25 @@ const Header = styled.div`
     font-size: 1.5em;
 `;
 
-const ItemWrapper = styled.div`
-    grid-column-start: 1;
-    grid-column-end:34;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
 const Item = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 180px 0 180px;
     font-size: 1.2em;
 `;
 
 const EmailsDuplicates = ({ possibleDuplicates }) => {
     return (
         <Table>
+            <Title>Possible Emails Duplicates</Title>
             <Header>Email 1</Header>
             <Header>Email 2</Header>
             {possibleDuplicates && possibleDuplicates.length > 0 &&
-                possibleDuplicates.map((email, index) => 
-                    <ItemWrapper key={email[0]}>
+                possibleDuplicates.map((email) => 
+                    <React.Fragment key={email[0]}>
                         <Item>{email[0]}</Item>
                         <Item>{email[1]}</Item>
-                    </ItemWrapper>
+                    </React.Fragment>
                 )
             }
         </Table>

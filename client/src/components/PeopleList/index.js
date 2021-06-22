@@ -31,19 +31,10 @@ const Header = styled.div`
     font-size: 1.5em;
 `;
 
-const ItemWrapper = styled.div`
-    grid-column-start: 1;
-    grid-column-end: 4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
-
 const Item = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 80px 0 80px;
     font-size: 1.2em;
 `;
 
@@ -55,13 +46,13 @@ export const PeopleList = ({ peopleList }) => {
             <Header>Email</Header>
             <Header>Job title</Header>
             {peopleList && peopleList.length > 0 &&
-                peopleList.map(({fullName, email, jobTitle}) =>
-                    <ItemWrapper key={fullName}>
-                        <Item>{fullName}</Item>
-                        <Item>{email}</Item>
-                        <Item>{jobTitle}</Item>
-                    </ItemWrapper>
-                )
+                peopleList.map((person) => (
+                    <React.Fragment key={person.fullName}>
+                        <Item>{person.fullName}</Item>
+                        <Item>{person.email}</Item>
+                        <Item>{person.jobTitle}</Item>
+                    </React.Fragment>
+                ))
             }
         </Table>
     )

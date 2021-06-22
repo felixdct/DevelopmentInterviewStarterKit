@@ -65,8 +65,6 @@ const People = (props) => {
                 <EmailsDuplicates possibleDuplicates={possibleDuplicates}/>
             }
         </FlexBox>
-        
-        
     )
 }
 
