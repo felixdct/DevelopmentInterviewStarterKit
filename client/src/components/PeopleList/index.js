@@ -1,42 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { Header, Item, TableDefinition, TitleDefinition } from '../../UI'
 
-const Table = styled.div`
-    width: 90%;
-    background: white;
-    margin: 50px auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 50px;
-`;
+const Table = TableDefinition(3);
 
-const Title = styled.div`
-    grid-column-start: 1;
-    grid-column-end: 4;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.9em;  
-`;
-
-const Header = styled.div`
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1.5em;
-`;
-
-const Item = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2em;
-`;
+const Title = TitleDefinition(1, 4);
 
 export const PeopleList = ({ peopleList }) => {
     return (

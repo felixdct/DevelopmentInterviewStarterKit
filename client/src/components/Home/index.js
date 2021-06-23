@@ -1,32 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types'
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { 
     PEOPLE_LIST,
     UNIQUE_EMAILS_CHARACTERS,
     POSSIBLE_EMAILS_DUPLICATES
-} from '../actions/Constants';
-import EmailsUniqueCharacters from './EmailsUniqueCharacters';
-import EmailsDuplicates from './EmailsDuplicates';
-import PeopleList from './PeopleList';
+} from '../../actions/Constants';
+import EmailsUniqueCharacters from '../EmailsUniqueCharacters';
+import EmailsDuplicates from '../EmailsDuplicates';
+import PeopleList from '../PeopleList';
+import { FlexBox, FlexBoxMenu} from '../../UI';
 
-
-const FlexBox = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  height:100%;
-  width:100%;
-`;
-
-const FlexBoxMenu = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: flex-start;
-  align-items: center;
-`;
-
-const People = (props) => {
+const Home = (props) => {
     const { peopleList, uniqueCharacters, possibleDuplicates, type, peopleListFn, uniqueCharactersFn, possibleDuplicatesFn } = props;
 
     return (
@@ -44,14 +28,14 @@ const People = (props) => {
                     type="button"
                     onClick={uniqueCharactersFn}
                 >
-                    Unique Emails Character Count
+                    Unique Emails Characters Count
                 </button>
 
                 <button
                     type="button"
                     onClick={possibleDuplicatesFn}
                 >
-                    Possible Emails Duplicate
+                    Possible Emails Duplicates
                 </button>
             </FlexBoxMenu>
             {type === PEOPLE_LIST && 
@@ -68,7 +52,7 @@ const People = (props) => {
     )
 }
 
-People.propTypes = {
+Home.propTypes = {
     peopleList: PropTypes.array.isRequired,
     uniqueCharacters: PropTypes.array.isRequired, 
     possibleDuplicates: PropTypes.array.isRequired,
@@ -78,4 +62,4 @@ People.propTypes = {
     possibleDuplicatesFn: () => {}
 };
 
-export default People;
+export default Home;

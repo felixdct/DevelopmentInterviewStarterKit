@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import {fetchPeopleList, fetchUniqueEmailsCharacters, fetchPossibleEmailsDuplicates} from "../actions/AsyncActions";
-import People from "../components/people";
+import Home from "../components/Home";
 
 const mapStateToProps = ({ people }) => {
     return { 
@@ -19,6 +19,6 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export const PeopleListContainer = connect(mapStateToProps, mapDispatchToProps)(People);
+export const PeopleListContainer = connect(mapStateToProps, mapDispatchToProps)(Home);
 
 export default PeopleListContainer;
