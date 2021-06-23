@@ -4,8 +4,6 @@ require('dotenv').config()
 var webpack = require('webpack');
 var path = require('path');
 
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-
 var BUILD_DIR = path.resolve(__dirname, './client/dist');
 var APP_DIR = path.resolve(__dirname, './client/src');
 
@@ -14,12 +12,11 @@ var config = {
   output: {
     path: BUILD_DIR,
     filename: 'app.js',
-    publicPath: '/'
   },
   module: {
-    loaders : [
+    rules : [
       {
-        test: /\.jsx?/,
+        test: /\.js?/,
         include: APP_DIR,
         loader: 'babel-loader'
       },
@@ -27,27 +24,26 @@ var config = {
         test: /\.css$/,
         include: APP_DIR,
         loader: [ 'style-loader', 'css-loader' ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       }
     ]
   },
-  plugins: [
-    //new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      template: './public/index.html'
-    })
-  ],
 
   devServer: {
-    //hot: true,
-    //hotOnly: true,
-    // allowedHosts: ['localhost'],
+    allowedHosts: ['localhost'],
     host: 'localhost',
+    port: 3000,
     headers: {
       'Access-Control-Allow-Origin': '*',
     },
     contentBase: BUILD_DIR,
-    historyApiFallback: true,
-    port: 3000
   }
 };
 
