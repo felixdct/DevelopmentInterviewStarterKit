@@ -2,7 +2,7 @@
   "name": "SalesLoftInterviewKit",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server -d --open",
+    "start": "webpack-dev-server",
     "test": "jest"
   },
   "private": true,
