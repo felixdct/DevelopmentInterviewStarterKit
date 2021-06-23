@@ -3,7 +3,7 @@
   "scripts": {
     "heroku-prebuild": "npm install --dev",
     "start": "webpack-dev-server",
-    "test": "jest",
+    "test": "jest"
   },
   "private": true,
   "dependencies": {
