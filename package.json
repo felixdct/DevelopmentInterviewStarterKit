@@ -2,7 +2,6 @@
   "name": "SalesLoftInterviewKit",
   "scripts": {
     "heroku-prebuild": "npm install --dev",
-    "build": "webpack --mode production",
     "start": "webpack-dev-server",
     "test": "jest",
   },
