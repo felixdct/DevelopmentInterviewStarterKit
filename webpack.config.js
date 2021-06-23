@@ -40,7 +40,7 @@ var config = {
   devServer: {
     //hot: true,
     //hotOnly: true,
-    // allowedHosts: ['localhost'],
+    allowedHosts: ['localhost'],
     host: 'localhost',
     headers: {
       'Access-Control-Allow-Origin': '*',
