@@ -1,4 +1,4 @@
-import { merge } from '../utils'
+import { merge } from '../utils/utils'
 import { RECEIVE_ME } from '../actions/Constants'
 
 export function me(

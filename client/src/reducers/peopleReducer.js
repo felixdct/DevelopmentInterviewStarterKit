@@ -1,4 +1,4 @@
-import { merge } from '../utils'
+import { merge } from '../utils/utils'
 import { 
     PEOPLE_LIST,
     UNIQUE_EMAILS_CHARACTERS,
